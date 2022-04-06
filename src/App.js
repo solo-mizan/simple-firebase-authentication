@@ -8,7 +8,14 @@ function App() {
   const provider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
-    signInWithPopup(auth, provider);
+    signInWithPopup(auth, provider)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch(error => {
+      console.log('error', error);
+    })
   }
 
 
