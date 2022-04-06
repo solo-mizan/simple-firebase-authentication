@@ -34,11 +34,14 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={handleGoogleSignIn}>Google sign in</button>
+      {
+        users.email ? <button onClick={handleSignOut}>Sign out</button>
+          :
+          <button onClick={handleGoogleSignIn}>Google sign in</button>
+      }
       <h1>Name: {users.displayName}</h1>
       <p>email: {users.email}</p>
-      <img src={users.photoURL} alt="" /> <br />
-      <button onClick={handleSignOut}>Sign out</button>
+      <img src={users.photoURL} alt="" />
     </div>
   );
 }
